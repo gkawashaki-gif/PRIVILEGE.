@@ -12,13 +12,11 @@ import math
 app = Flask(__name__)
 app.secret_key = "privilege_chave_secreta_2026"
 
-# Cada cliente terá um pedido separado
 PEDIDOS_POR_SESSAO = {}
 
 WHATSAPP_NUMERO = "5515998401570"
 VALOR_METRO_LINEAR = 2.90
 
-# Chapa padrão informada por você
 CHAPA_COMPRIMENTO_MM = 2750
 CHAPA_LARGURA_MM = 1850
 
@@ -57,7 +55,6 @@ def obter_pedidos():
 
 
 def calcular_metro_linear_item(item):
-    # perímetro da peça * quantidade
     perimetro_mm = (item["Comprimento"] + item["Largura"]) * 2
     metros = (perimetro_mm / 1000) * item["Quantidade"]
     return round(metros, 2)
